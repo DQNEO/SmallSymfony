@@ -1,4 +1,5 @@
 <?php
+namespace SmallSymfony;
 class Request
 {
     public $get;

@@ -7,15 +7,20 @@ class Request
     {
         $this->get = $get;
     }
+
+    public function query($key)
+    {
+        return $this->get[$key];
+    }
 }
 
 class Response
 {
     private $body;
 
-    public function __construct($msg)
+    public function __construct($body)
     {
-        $this->body = $msg;
+        $this->body = $body;
     }
 
     public function send()
@@ -34,8 +39,9 @@ class HttpKernel
      */
     public function handle(Request $request)
     {
-        $name = $request->get['name'];
-        $response = new Response("hello " . $name);
+        $name = $request->query('name');
+        $body = "hello " . $name;
+        $response = new Response($body);
         return $response;
     }
 

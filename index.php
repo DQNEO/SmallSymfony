@@ -24,7 +24,8 @@ class HttpKernel
      */
     public function handle()
     {
-        $response = new Response("hello world");
+        $name = $_GET['name'];
+        $response = new Response("hello " . $name);
         return $response;
     }
 

@@ -16,15 +16,20 @@ class Response
 
 }
 
-/**
- * @return Response
- */
-function handle()
+class HttpKernel
 {
-    $response = new Response("hello world");
-    return $response;
+
+    /**
+     * @return Response
+     */
+    public static function handle()
+    {
+        $response = new Response("hello world");
+        return $response;
+    }
+
 }
 
-$response = handle();
+$response = HttpKernel::handle();
 $response->send();
 

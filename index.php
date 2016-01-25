@@ -1,3 +1,9 @@
 <?php
 
-echo "hello world";
+function main()
+{
+    echo "hello world";
+}
+
+main();
+

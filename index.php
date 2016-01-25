@@ -22,16 +22,17 @@ class HttpKernel
     /**
      * @return Response
      */
-    public function handle()
+    public function handle($get)
     {
-        $name = $_GET['name'];
+        $name = $get['name'];
         $response = new Response("hello " . $name);
         return $response;
     }
 
 }
 
+
 $httpKernel = new HttpKernel();
-$response = $httpKernel->handle();
+$response = $httpKernel->handle($_GET);
 $response->send();
 

@@ -3,7 +3,7 @@ namespace SmallSymfony;
 
 class Request
 {
-    public $get;
+    private $get;
 
     public function __construct($get)
     {

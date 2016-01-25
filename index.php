@@ -1,4 +1,13 @@
 <?php
+class Request
+{
+    public $get;
+
+    public function __construct($get)
+    {
+        $this->get = $get;
+    }
+}
 
 class Response
 {
@@ -22,9 +31,9 @@ class HttpKernel
     /**
      * @return Response
      */
-    public function handle($get)
+    public function handle($request)
     {
-        $name = $get['name'];
+        $name = $request->get['name'];
         $response = new Response("hello " . $name);
         return $response;
     }
@@ -33,6 +42,7 @@ class HttpKernel
 
 
 $httpKernel = new HttpKernel();
-$response = $httpKernel->handle($_GET);
+$request = new Request($_GET);
+$response = $httpKernel->handle($request);
 $response->send();
 

@@ -22,7 +22,7 @@ class HttpKernel
     /**
      * @return Response
      */
-    public static function handle()
+    public function handle()
     {
         $response = new Response("hello world");
         return $response;
@@ -30,6 +30,7 @@ class HttpKernel
 
 }
 
-$response = HttpKernel::handle();
+$httpKernel = new HttpKernel();
+$response = $httpKernel->handle();
 $response->send();
 

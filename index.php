@@ -2,11 +2,16 @@
 
 class Response
 {
-    public $body;
+    private $body;
 
     public function __construct($msg)
     {
         $this->body = $msg;
+    }
+
+    public function send()
+    {
+        echo $this->body;
     }
 
 }
@@ -21,5 +26,5 @@ function main()
 }
 
 $msg = main();
-echo $msg->body;
+$msg->send();
 

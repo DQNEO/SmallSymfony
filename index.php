@@ -19,12 +19,12 @@ class Response
 /**
  * @return Response
  */
-function main()
+function handle()
 {
     $response = new Response("hello world");
     return $response;
 }
 
-$response = main();
+$response = handle();
 $response->send();
 

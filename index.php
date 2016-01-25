@@ -21,10 +21,10 @@ class Response
  */
 function main()
 {
-    $msg = new Response("hello world");
-    return $msg;
+    $response = new Response("hello world");
+    return $response;
 }
 
-$msg = main();
-$msg->send();
+$response = main();
+$response->send();
 

@@ -2,7 +2,8 @@
 
 function main()
 {
-    echo "hello world";
+    $msg = "hello world"
+    echo $msg;
 }
 
 main();

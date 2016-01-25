@@ -3,8 +3,9 @@
 function main()
 {
     $msg = "hello world"
-    echo $msg;
+    return $msg;
 }
 
-main();
+$msg = main();
+echo $msg;
 

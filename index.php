@@ -29,9 +29,10 @@ class HttpKernel
 {
 
     /**
+     * @param Request $request
      * @return Response
      */
-    public function handle($request)
+    public function handle(Request $request)
     {
         $name = $request->get['name'];
         $response = new Response("hello " . $name);

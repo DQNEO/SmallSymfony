@@ -43,11 +43,16 @@ class Response
 class HttpKernel
 {
 
-    public function handle(Request $request) : Response
+    protected function action(Request $request) : Response
     {
         $name = $request->query('name');
         $body = "hello " . $name . " from " . $request->path;
         $response = new Response($body);
+        return $response;
+    }
+    public function handle(Request $request) : Response
+    {
+        $response =  $this->action($request);
         return $response;
     }
 

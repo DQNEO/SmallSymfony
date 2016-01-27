@@ -7,14 +7,14 @@ use SmallSymfony\Response;
 use SmallSymfony\Application;
 
 $app = new Application();
-$app->get('/', function(Request $request) {
+$app->get('/', function(Request $request) :Response {
     $name = $request->query('name');
     $body = "hello " . $name . " from index aciotn by path " . $request->path;
     $response = new Response($body);
     return $response;
 });
 
-$app->get('/foo', function(Request $request) {
+$app->get('/foo', function(Request $request) :Response {
     $name = $request->query('name');
     $body = "hello " . $name . " from foo aciotn by path " . $request->path;
     $response = new Response($body);

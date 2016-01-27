@@ -6,7 +6,7 @@ class Request
     private $get;
     public  $server;
 
-    public function __construct($server, $get)
+    public function __construct(array $server, array $get)
     {
         $this->get = $get;
         $this->server = $server;
@@ -18,7 +18,7 @@ class Request
         }
     }
 
-    public function query($key)
+    public function query(string $key)
     {
         return $this->get[$key] ?? null;
     }
@@ -28,7 +28,7 @@ class Response
 {
     private $body;
 
-    public function __construct($body)
+    public function __construct(string $body)
     {
         $this->body = $body;
     }

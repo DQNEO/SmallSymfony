@@ -12,7 +12,7 @@ class Request
         $this->server = $server;
 
         if (isset(($server['PATH_INFO']))) {
-            return $server['PATH_INFO'];
+            $this->path = $server['PATH_INFO'];
         } else {
             $this->path = preg_replace('|\?.*|', '', $server['REQUEST_URI']);
         }

@@ -4,6 +4,7 @@ require_once __DIR__ . '/SmallSymony.php';
 use SmallSymfony\HttpKernel;
 use SmallSymfony\Request;
 use SmallSymfony\Response;
+use SmallSymfony\Application;
 
 $app = new Application();
 $app->get('/', function(Request $request) {

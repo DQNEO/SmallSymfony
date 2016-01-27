@@ -44,7 +44,7 @@ class Response
 class HttpKernel
 {
 
-    public function __construct(\Application  $app)
+    public function __construct(Application  $app)
     {
         $this->app = $app;
 

@@ -5,6 +5,8 @@ use SmallSymfony\HttpKernel;
 use SmallSymfony\Request;
 use SmallSymfony\Response;
 
+class Application {}
+
 $actions = [
     '/' => function(Request $request) {
         $name = $request->query('name');
@@ -20,8 +22,9 @@ $actions = [
     },
 ];
 
-
-$httpKernel = new HttpKernel($actions);
+$app = new Application();
+$app->actions = $actions;
+$httpKernel = new HttpKernel($app);
 $request = new Request($_SERVER, $_GET);
 $response = $httpKernel->handle($request);
 $response->send();

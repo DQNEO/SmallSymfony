@@ -44,9 +44,9 @@ class Response
 class HttpKernel
 {
 
-    public function __construct(\Application  $actions)
+    public function __construct(\Application  $app)
     {
-        $this->actions = $actions;
+        $this->app = $app;
 
     }
 
@@ -59,7 +59,7 @@ class HttpKernel
 
     private function resolveController(Request $request) : callable
     {
-        return $this->actions->actions[$request->path];
+        return $this->app->actions[$request->path];
     }
 
 }

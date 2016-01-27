@@ -44,9 +44,10 @@ class Response
 class HttpKernel
 {
 
-    public function __construct(callable  $action)
+    public function __construct(array  $actions)
     {
-        $this->action = $action;
+        $this->actions = $actions;
+
     }
 
     public function handle(Request $request) : Response
@@ -56,9 +57,9 @@ class HttpKernel
         return $response;
     }
 
-    private function resolveController(Request $request)
+    private function resolveController(Request $request) : callable
     {
-         return $this->action;
+         return $this->actions['/'];
     }
 
 }

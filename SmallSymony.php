@@ -12,7 +12,7 @@ class Request
 
     public function query($key)
     {
-        return $this->get[$key];
+        return $this->get[$key] ?? null;
     }
 }
 
@@ -38,7 +38,7 @@ class HttpKernel
     public function handle(Request $request) : Response
     {
         $name = $request->query('name');
-        $body = "hello " . $name;
+        $body = "hello " . $name . " from " . $request->path;
         $response = new Response($body);
         return $response;
     }

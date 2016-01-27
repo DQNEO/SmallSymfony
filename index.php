@@ -7,7 +7,7 @@ use SmallSymfony\Response;
 
 
 $httpKernel = new HttpKernel();
-$request = new Request($_GET);
+$request = new Request($_SERVER, $_GET);
 $response = $httpKernel->handle($request);
 $response->send();
 

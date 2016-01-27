@@ -1,2 +1,2 @@
 #!/bin/bash
-exec php -S 0:3000 -t .
+exec php -S 0:3000 index.php

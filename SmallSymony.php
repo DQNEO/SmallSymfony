@@ -40,20 +40,25 @@ class Response
 
 }
 
+
 class HttpKernel
 {
 
-    protected function action(Request $request) : Response
+    public function __construct(callable  $action)
     {
-        $name = $request->query('name');
-        $body = "hello " . $name . " from " . $request->path;
-        $response = new Response($body);
-        return $response;
+        $this->action = $action;
     }
+
     public function handle(Request $request) : Response
     {
-        $response =  $this->action($request);
+        $controller = $this->resolveController($request);
+        $response =  $controller($request);
         return $response;
+    }
+
+    private function resolveController(Request $request)
+    {
+         return $this->action;
     }
 
 }

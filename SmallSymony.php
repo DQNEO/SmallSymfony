@@ -4,7 +4,7 @@ namespace SmallSymfony;
 class Request
 {
     private $get;
-    private $server;
+    public  $server;
 
     public function __construct($server, $get)
     {
@@ -59,7 +59,8 @@ class HttpKernel
 
     private function resolveController(Request $request) : callable
     {
-        return $this->app->get[$request->path];
+        $method = strtolower($request->server['REQUEST_METHOD']);
+        return $this->app->$method[$request->path];
     }
 
 }

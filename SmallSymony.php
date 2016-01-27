@@ -11,7 +11,7 @@ class Request
         $this->get = $get;
         $this->server = $server;
 
-        if (isset(($server['PATH_INFO']))) {
+        if (isset($server['PATH_INFO'])) {
             $this->path = $server['PATH_INFO'];
         } else {
             $this->path = preg_replace('|\?.*|', '', $server['REQUEST_URI']);

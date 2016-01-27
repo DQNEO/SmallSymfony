@@ -5,23 +5,32 @@ use SmallSymfony\HttpKernel;
 use SmallSymfony\Request;
 use SmallSymfony\Response;
 
-class Application {}
+class Application
+{
+    public $get = [];
+
+    public function get(string $key, callable $func)
+    {
+        $this->get[$key] = $func;
+    }
+}
 
 
 $app = new Application();
-$app->actions['/'] = function(Request $request) {
+$app->get('/', function(Request $request) {
     $name = $request->query('name');
     $body = "hello " . $name . " from index aciotn by path " . $request->path;
     $response = new Response($body);
     return $response;
-};
+});
 
-$app->actions['/foo'] = function(Request $request) {
+$app->get('/foo', function(Request $request) {
     $name = $request->query('name');
     $body = "hello " . $name . " from foo aciotn by path " . $request->path;
     $response = new Response($body);
     return $response;
-};
+});
+
 
 $httpKernel = new HttpKernel($app);
 $request = new Request($_SERVER, $_GET);

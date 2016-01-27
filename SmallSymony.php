@@ -35,9 +35,6 @@ class Response
 class HttpKernel
 {
 
-    /**
-     * @param Request $request
-     */
     public function handle(Request $request) : Response
     {
         $name = $request->query('name');

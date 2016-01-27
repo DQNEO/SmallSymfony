@@ -7,23 +7,22 @@ use SmallSymfony\Response;
 
 class Application {}
 
-$actions = [
-    '/' => function(Request $request) {
-        $name = $request->query('name');
-        $body = "hello " . $name . " from index aciotn by path " . $request->path;
-        $response = new Response($body);
-        return $response;
-    },
-    '/foo' => function(Request $request) {
-        $name = $request->query('name');
-        $body = "hello " . $name . " from foo aciotn by path " . $request->path;
-        $response = new Response($body);
-        return $response;
-    },
-];
 
 $app = new Application();
-$app->actions = $actions;
+$app->actions['/'] = function(Request $request) {
+    $name = $request->query('name');
+    $body = "hello " . $name . " from index aciotn by path " . $request->path;
+    $response = new Response($body);
+    return $response;
+};
+
+$app->actions['/foo'] = function(Request $request) {
+    $name = $request->query('name');
+    $body = "hello " . $name . " from foo aciotn by path " . $request->path;
+    $response = new Response($body);
+    return $response;
+};
+
 $httpKernel = new HttpKernel($app);
 $request = new Request($_SERVER, $_GET);
 $response = $httpKernel->handle($request);

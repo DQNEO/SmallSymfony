@@ -37,9 +37,8 @@ class HttpKernel
 
     /**
      * @param Request $request
-     * @return Response
      */
-    public function handle(Request $request)
+    public function handle(Request $request) : Response
     {
         $name = $request->query('name');
         $body = "hello " . $name;

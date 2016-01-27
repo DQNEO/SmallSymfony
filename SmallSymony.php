@@ -59,7 +59,7 @@ class HttpKernel
 
     private function resolveController(Request $request) : callable
     {
-         return $this->actions['/'];
+        return $this->actions[$request->path];
     }
 
 }

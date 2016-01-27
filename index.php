@@ -12,6 +12,12 @@ $actions = [
         $response = new Response($body);
         return $response;
     },
+    '/foo' => function(Request $request) {
+        $name = $request->query('name');
+        $body = "hello " . $name . " from foo aciotn by path " . $request->path;
+        $response = new Response($body);
+        return $response;
+    },
 ];
 
 

@@ -64,3 +64,14 @@ class HttpKernel
     }
 
 }
+
+class Application
+{
+    public $get = [];
+
+    public function get(string $key, callable $func)
+    {
+        $this->get[$key] = $func;
+    }
+}
+

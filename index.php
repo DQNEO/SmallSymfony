@@ -5,17 +5,6 @@ use SmallSymfony\HttpKernel;
 use SmallSymfony\Request;
 use SmallSymfony\Response;
 
-class Application
-{
-    public $get = [];
-
-    public function get(string $key, callable $func)
-    {
-        $this->get[$key] = $func;
-    }
-}
-
-
 $app = new Application();
 $app->get('/', function(Request $request) {
     $name = $request->query('name');
